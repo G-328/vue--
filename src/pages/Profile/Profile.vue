@@ -1,13 +1,9 @@
 <template>
   <div>
     <section class="profile">
-      <header class="header">
-        <a class="header_title">
-          <span class="header_title_text">我的</span>
-        </a>
-      </header>
+      <GshopHeader title="我的"/>
       <section class="profile-number">
-        <a href="javascript:" class="profile-link">
+        <a @click="toLogin" href="javascript:" class="profile-link">
           <div class="profile_image">
             <i class="iconfont icon-person_round_fill"></i>
           </div>
@@ -99,6 +95,11 @@
 
 <script type="text/ecmascript-6">
   export default {
+    methods: {
+      toLogin () {
+        this.$router.replace('/login')
+      }
+    }
   }
 </script>
 
@@ -106,6 +107,8 @@
   @import '../../common/stylus/mixins.styl'
   .profile
     width 100%
+    box-sizing border-box
+    // border-top 1px solid white
     .profile-number
       margin-top 45.5px
       .profile-link

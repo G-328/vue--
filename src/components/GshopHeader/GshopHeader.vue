@@ -1,26 +1,25 @@
 <template>
   <div>
-    <section class="order">
-      <GshopHeader title="订单"/>
-      <section class="order_no_login">
-        <img src="../../common/images/order/person.png">
-        <h3>登录后查看外卖订单</h3>
-        <button>立即登陆</button>
-      </section>
-    </section>
+    <header class="header">
+      <slot name="left"></slot>
+      <a class="header_title">
+        <span class="header_title_text ellipsis" >{{title}}</span>
+      </a>
+      <slot name="right"></slot>
+    </header>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
+    props: {
+      title: String
+    }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import '../../common/stylus/mixins.styl'
-  .order
-    width 100%
-    .header
+ .header
     background-color #02a774
     position fixed
     z-index 100
@@ -59,27 +58,5 @@
       transform translateY(-50%)
       .header_login_text
         color #fff
-    .order_no_login
-      padding-top 140px
-      width 60%
-      margin 0 auto
-      text-align center
-      >img
-        display block
-        width 100%
-        height 30%
-      >h3
-        padding 10px 0
-        font-size 17px
-        color #6a6a6a
-      >button
-        display inline-block
-        background #02a774
-        font-size 14px
-        color #fff
-        border 0
-        outline none
-        border-radius 5px
-        padding 10px 20px
  
 </style>
