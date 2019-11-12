@@ -1,12 +1,15 @@
 import {
   getAddress, 
   getCategorys,
-  getShops
+  getShops,
+  autoLogin
 } from '../api'
 import {
   SAVE_ADDRESS,
   SAVE_CATEGORYS,
-  SAVE_SHOPS
+  SAVE_SHOPS,
+  SAVE_USER,
+  SAVE_TOKEN
 } from './mutations-type.js'
 
 
@@ -31,6 +34,16 @@ export default {
     if (result.code === 0) {
       commit(SAVE_SHOPS, {shops: result.data})
     }
+  },
+  getUserAction({commit}, {user}) {
+    commit(SAVE_TOKEN, {token: user.token})
+    delete user.token
+    commit(SAVE_USER, {user})
+  },
+  async autoLoginAction({commit}) {
+    let result = await autoLogin()
+    if (result.code === 0) {
+      commit(SAVE_USER,{user: result.data})
+    }
   }
-
 } 

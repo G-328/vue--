@@ -1,7 +1,9 @@
 import {
   SAVE_ADDRESS,
   SAVE_CATEGORYS,
-  SAVE_SHOPS
+  SAVE_SHOPS,
+  SAVE_USER,
+  SAVE_TOKEN
 } from './mutations-type'
 
 
@@ -14,6 +16,13 @@ export default {
   },
   [SAVE_SHOPS](state, {shops}) {
     state.shops = shops
-  } 
-  
+  },
+  [SAVE_USER](state, {user}) {
+    state.user = user
+  },
+  [SAVE_TOKEN](state, {token}) {
+    //存储到本地localStorage
+    localStorage.setItem('token_key',token)
+    state.token = token
+  }
 }

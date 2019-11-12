@@ -8,6 +8,17 @@
             <i class="iconfont icon-person_round_fill"></i>
           </div>
           <div class="user-info">
+            <p class="user-info-top" v-if="!user.phone">{{user.name ? user.name : '登录/注册'}}</p>
+            <p>
+              <span class="user-icon">
+                <i class="iconfont icon-shouji icon-mobile"></i>
+              </span>
+              <span class="icon-mobile-number" v-if="!user.name">{{user.phone ? user.phone : '暂无绑定手机号'}}</span>
+            </p>
+          </div>
+
+          <!-- 这种方法不能用，太笨 -->
+          <!-- <div class="user-info" v-if="!name && !phone">
             <p class="user-info-top">登录/注册</p>
             <p>
               <span class="user-icon">
@@ -15,7 +26,9 @@
               </span>
               <span class="icon-mobile-number">暂无绑定手机号</span>
             </p>
-          </div>
+          </div> -->
+
+
           <span class="arrow">
             <i class="iconfont icon-jiantou1"></i>
           </span>
@@ -94,11 +107,22 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import {mapState} from 'vuex'
   export default {
     methods: {
       toLogin () {
-        this.$router.replace('/login')
+        if (!this.user._id) {
+          this.$router.replace('/login')
+        }
       }
+    },
+    computed: {
+      ...mapState({
+        user: state => state.user,
+      })
+    },
+    mounted() {
+      this.$store.dispatch('autoLoginAction')
     }
   }
 </script>

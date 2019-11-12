@@ -49,7 +49,7 @@
           new Swiper('.swiper-container', {
             loop: true,
             pagination: {
-            el: '.swiper-pagination'
+              el: '.swiper-pagination'
             }
           })
         })
@@ -83,7 +83,7 @@
 </script>
 
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scope>
   @import "../../common/stylus/mixins.styl"
   .msite  
     width 100%
@@ -124,5 +124,5 @@
                 color #666
         .swiper-pagination
           >span.swiper-pagination-bullet-active
-            background #02a774
+            background red
    </style>
