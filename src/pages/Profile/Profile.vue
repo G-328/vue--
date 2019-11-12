@@ -6,7 +6,7 @@
         <a @click="toLogin" href="javascript:" class="profile-link">
           <div class="profile_image">
             <i v-show="!user" class="iconfont icon-person_round_fill"></i>
-            <img v-show="user.name" src="https://img2.woyaogexing.com/2019/11/01/a2b3f5b946cf420e9a57f6f6c60b53e4!400x400.jpeg" width="60px" height="60px" alt="tu">
+            <img v-show="user.name" src="https://img2.woyaogexing.com/2019/11/01/a2b3f5b946cf420e9a57f6f6c60b53e4!400x400.jpeg" alt="tu">
           </div>
           <div class="user-info">
             <p class="user-info-top" v-if="!user.phone">{{user.name ? user.name : '登录/注册'}}</p>
@@ -158,6 +158,9 @@
           overflow hidden
           vertical-align top
           background #f2f2f2
+          img 
+            width 60px
+            height 60px
           .icon-person_round_fill
             background #e4e4e4
             font-size 62px
