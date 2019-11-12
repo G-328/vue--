@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import 'lib-flexible/flexible'
 import './veevalidate'
+import {Button} from 'mint-ui'
 
 
 import router from './router'
@@ -10,7 +11,8 @@ import GshopHeader from './components/GshopHeader/GshopHeader'
 
 
 //注册全局组件，语法：Vue.component(组件名，组件)
-Vue.component('GshopHeader',GshopHeader)
+Vue.component('GshopHeader', GshopHeader)
+Vue.component(Button.name, Button)
 Vue.config.productionTip = false
 
 // new Vue({

@@ -3,7 +3,8 @@ import {
   SAVE_CATEGORYS,
   SAVE_SHOPS,
   SAVE_USER,
-  SAVE_TOKEN
+  SAVE_TOKEN,
+  LOGINOUT
 } from './mutations-type'
 
 
@@ -24,5 +25,10 @@ export default {
     //存储到本地localStorage
     localStorage.setItem('token_key',token)
     state.token = token
+  },
+  [LOGINOUT](state) {
+    state.user = {},
+    state.token = '',
+    localStorage.removeItem('token_key')
   }
 }

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
+import {MessageBox} from 'mint-ui'
 import router from '../router';
 
 //生成一个Axios的伪实列，具备Axios实例对象的所有属性、方法，但是不是真实的Axios实例
@@ -33,18 +34,18 @@ instance.interceptors.response.use(
 
     if (!error.response) {//没发送请求
       //没有token
-      alert(error.response)
+      MessageBox.alert(error.response)
       router.currentRoute.path !== '/login' && router.replace('/login')
     }else {//发送了请求
       //有token，token过期了
       if (error.response.status === 401) {
-        alert('token已过期，请重新登录')
+        MessageBox.alert('token已过期，请重新登录')
         router.currentRoute.path !== '/login' && router.replace('/login')
       }else if(error.response.status === 404) {
         //请求404
-        alert('资源未找到')
+        MessageBox.alert('资源未找到')
       }else {
-        alert('请求失败')
+        MessageBox.alert('请求失败')
       }
     }
     //手动返回一个状态为pending的promsie的实例来中断，保证不会自动进入下一个成功的回调

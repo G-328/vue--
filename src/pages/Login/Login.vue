@@ -101,6 +101,7 @@
 
 <script type="text/ecmascript-6">
   import {loginWithPassword, loginWithPhone, sendCode} from '../../api'
+  import {Toast} from 'mint-ui'
   export default {
     data () {
       return {
@@ -123,7 +124,7 @@
         let names = isPassWordLogin ? ['username', 'pwd', 'captcha'] : ['phone', 'code']
         const success = await this.$validator.validateAll(names)
         if (success) {
-          alert('前端验证成功')
+          // Toast('前端验证成功')
           let result
           if (isPassWordLogin) {
             result = await loginWithPassword(name, pwd, captcha)
@@ -142,22 +143,22 @@
           }
 
           if (result.code === 0) {
-            alert('登录成功')
+            Toast('登录成功')
             this.$store.dispatch('getUserAction', {user: result.data})
             this.$router.replace('/profile')
           }
         
         }else {
-          alert('前端验证失败')
+          Toast('前端验证失败')
         }
       },
       async sendCode() {
         console.log('发送验证码')
         let result = await sendCode(this.phone)
         if (result.code === 0) {
-          alert('短信发送成功')
+          Toast('短信发送成功')
         }else {
-          alert('短信发送失败')
+          Toast('短信发送失败')
         }
         if(this.intervalId) return
         this.countDown = 10

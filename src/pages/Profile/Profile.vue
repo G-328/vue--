@@ -102,11 +102,13 @@
           </div>
         </a>
       </section>
+      <mt-button type="danger" size="large" @click="loginOut">退出登录</mt-button>
     </section>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import {MessageBox} from 'mint-ui'
   import {mapState} from 'vuex'
   export default {
     methods: {
@@ -114,6 +116,12 @@
         if (!this.user._id) {
           this.$router.replace('/login')
         }
+      },
+      loginOut() {
+        MessageBox.confirm('确定退出登陆吗').then(
+          quedingtuichu => this.$store.commit('loginout'),
+          quxiaotuichu => console.log('取消退出')
+        )
       }
     },
     computed: {
