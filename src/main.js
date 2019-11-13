@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import 'lib-flexible/flexible'
-import './veevalidate'
 import {Button} from 'mint-ui'
 
-
+import './mock/mockServer'
+import './veevalidate'
 import router from './router'
 import store from './store'
 import GshopHeader from './components/GshopHeader/GshopHeader'

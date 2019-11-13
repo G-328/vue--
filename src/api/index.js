@@ -57,8 +57,13 @@ export const sendCode = phone => ajax({
 
 //自动登录
 export const autoLogin = () => ajax({
-  url: 'auto_login',
+  url: '/auto_login',
   headers: {
     needToken: true
   }
+})
+
+//测试mock数据
+export const getShopDatas = () => ajax({
+  url: '/shopDatas'
 })
