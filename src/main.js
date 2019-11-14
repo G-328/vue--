@@ -8,10 +8,12 @@ import './veevalidate'
 import router from './router'
 import store from './store'
 import GshopHeader from './components/GshopHeader/GshopHeader'
+import CartControl from './components/CartControl/CartControl'
 
 
 //注册全局组件，语法：Vue.component(组件名，组件)
 Vue.component('GshopHeader', GshopHeader)
+Vue.component('CartControl', CartControl)
 Vue.component(Button.name, Button)
 Vue.config.productionTip = false
 
