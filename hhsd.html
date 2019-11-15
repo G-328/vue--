@@ -12,8 +12,7 @@
 
   <script>
     //代码片段三
-
-    function fun(n, o) {
+    /* function fun(n, o) {
     			console.log(o)
     			return {
       				fun: function (m) {
@@ -31,8 +30,44 @@
 
   		var c = fun(0).fun(1)
   		c.fun(2)
-  		c.fun(3)
+			c.fun(3) */
+			
+			// let foo = 'heihei'
+			// let [a,b,c,d] = 'qweer'
+			// console.log(foo)
+			// console.log(too)
+			// console.log(a,b,c,d)
 
+			// let arr = [123,321]
+			// let arr2 = [...arr]
+			// arr2.push(1234)
+			// console.log(arr)
+			// console.log(arr2)
+
+			let arr = [1,2,3,4,5,6]
+			let obj = {name: 'kobe', age: 18}
+			console.log('for of 👇')
+			for (let value of arr) {
+				console.log(value)
+			}
+			console.log('----------------')
+			for (let item of Object.keys(obj)) {
+				console.log(item)
+			}
+
+			console.log('for 👇')
+			for (let i = 0; i < arr.length; i++) {
+				console.log(arr[i])
+			}
+			console.log('-----------')
+
+			console.log('map 👇')
+			arr.map(item => console.log(item))
+
+			console.log('for in 👇')
+			for (let item in obj) {
+				console.log(obj)
+			}
 
 
 

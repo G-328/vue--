@@ -35,6 +35,7 @@
         </li>
       </ul>
     </div>
+    <ShopCart />
   </div>
 </template>
 
@@ -42,7 +43,11 @@
   import Bscroll from 'better-scroll'
   import {mapState} from 'vuex'
   import {getShopDatas} from '../../../api'
+  import ShopCart from '../../../components/ShopCart/ShopCart';
   export default {
+    components: {
+      ShopCart
+    },
     data() {
       return {
         scrollY: 0, //记录右侧滑动内容区滑动的距离
@@ -82,7 +87,7 @@
         })
         this.rightscroll = new Bscroll('.rightContainer',{
           scrollY: true, //设置纵向滑动
-          click: true,
+          // click: true,   //因为后续会引发bug所以回头禁止掉
           probeType: 2,
         })
 
@@ -127,8 +132,8 @@
     display flex
     /* position absolute
     top 224px
-    bottom 0 */
-    height calc(100vh - 224px)
+    bottom 0 */  224 56
+    height calc(100vh - 274px)
     overflow hidden
     .leftContainer
       background #f3f5f7
